@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find A Job</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Passion+One&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -144,13 +149,15 @@
       body {
         background-image: url("https://user-images.githubusercontent.com/80146176/152661692-6a6355da-e09c-4526-ba01-a9ffcfd9563f.png");
         background-position: center;
-        background-size: cover;
+        width:100%;
+        font-family: 'Roboto Slab', serif;
       }
       header {
         display: flex;
         padding: 55px 40px;
         justify-content: space-between;
         border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        font-family: 'Passion One', cursive;
       }
       header span {
         font-size: 32px;
@@ -165,6 +172,7 @@
         justify-content: center;
         align-items: center;
         margin-right: 20px;
+        cursor:pointer;
       }
       .loginBtn {
         padding: 10px 20px;
@@ -176,6 +184,7 @@
         background-color: #7377fd;
         color: white;
         border-radius: 30px;
+        font-family: 'Nanum Gothic Coding', monospace;
       }
       .headerLogo {
         display: flex;
@@ -212,8 +221,6 @@
         cursor: pointer;
       }
       .searchBarWrapper {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
         font-size: 22px;
         padding: 20px 40px;
         border-radius: 50px;
@@ -222,13 +229,23 @@
         margin-bottom: 30px;
       }
       .searchBar {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+      }
+      .searchInput {
         display: flex;
-        border-right: 2px solid rgba(0, 0, 0, 0.2);
+        align-items: center;
+      }
+      .searchCheckContainer {
+        padding-left: 40px;
+        border-left: 2px solid rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
       }
       .fa-search {
         font-size: 30px;
       }
-      .searchBar input {
+      .searchWordBar {
         width: 100%;
         margin-left: 40px;
         -webkit-appearance: none;
@@ -238,55 +255,51 @@
         background-color: inherit;
         font-size: 30px;
         border: none;
+        outline:none;
       }
-      .searchBar input::placeholder {
+      .searchWordBar::placeholder {
         color: #222;
         opacity: 1;
         font-size: 30px;
       }
-      .searchBar input:focus {
+      .searchWordBar:focus {
         border: none;
         background-color: inherit;
         font-size: 30px;
       }
-      input:placeholder-shown {
+      .searchWordBar:placeholder-shown {
         outline: none;
         font-size: 30px;
         background-color: inherit;
         border: none;
       }
-      input:focus::-webkit-input-placeholder {
+      .searchWordBar:focus::-webkit-input-placeholder {
         outline: none;
         font-size: 30px;
         color: transparent;
         border: none;
       }
-      input:focus::-moz-placeholder {
+      .searchWordBar:focus::-moz-placeholder {
         outline: none;
         color: transparent;
         border: none;
       }
-      input:focus:-ms-input-placeholder {
+      .searchWordBar:focus:-ms-input-placeholder {
         outline: none;
         color: transparent;
         border: none;
       }
-      input:focus::-ms-input-placeholder {
+      .searchWordBar:focus::-ms-input-placeholder {
         color: transparent;
         border: none;
       }
-      .searchBar input:-ms-input-placeholder {
+      .searchWordBar:-ms-input-placeholder {
         color: #222;
         opacity: 1;
-      }
-      .whatSite {
-        display: flex;
-        align-items: center;
-        padding: 0px 40px;
-        justify-content: space-between;
       }
       .searchOption {
         display: flex;
+        align-items:center;
       }
       .optionBox {
         border: 2px solid rgba(0, 0, 0, 0.2);
@@ -296,6 +309,8 @@
         margin-right: 50px;
         display: flex;
         align-items: center;
+        cursor:pointer;
+        font-family: 'Nanum Gothic Coding', monospace;
       }
       .optionColorCircle {
         background-image: linear-gradient(45deg, #f3b6fd, #9a8aff);
@@ -319,18 +334,18 @@
       .content {
         display: flex;
         flex-direction: column;
+        font-family: 'Roboto Slab','Nanum Gothic Coding', serif;
       }
       .content a {
-        display: block;
+        display:flex;
+        justify-contents:center;
+        align-items:center;
+        min-height:350px;
         overflow: hidden;
-        width: 100%;
-        height: 100%;
+        border-radius:15px;
+        border: 1px solid rgba(0,0,0,0.2);
       }
-      .content img {
-        width: 100%;
-        height: 100%;
-        border-radius: 15px;
-      }
+
       .textWrapper {
         display: flex;
         justify-content: space-between;
@@ -363,9 +378,34 @@
       .textLocation {
         font-size: 12px;
       }
-      .companyText {
-        font-size: 14px;
-        margin-top: 10px;
+      .imgBox {
+        position: absolute;
+      }
+      .textBox img {
+        position: relative;
+        bottom: 150px;
+        left: 10px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+      .contentImg{
+        width:100%;
+      }
+      .companyText{
+        margin-top:10px;
+        line-height:22px;
+      }
+      .loginForm{
+        display:flex;
+        align-items:center;
+
+      }
+      .loginForm input{
+        margin-right:15px;
+      }
+      .userNameWel{
+        font-family: 'Nanum Gothic Coding', monospace;
       }
     </style>
   </head>
@@ -373,8 +413,30 @@
     <header>
       <span>FIND A JAB</span>
       <ul>
-        <li><div class="loginBtn">LOGIN</div></li>
-        <li><div class="loginColorBtn">LOGIN</div></li>
+{% if login == True %}
+<li class="userNameWel">{{username}}님 어서오세요!</li>
+<li><a class="loginColorBtn" href ={{url_for("logout")}}>로그아웃</a><li>
+
+{% else %}
+<form class="loginForm" action={{url_for("login")}} id="login" method="get">
+  <input type="id" id="loginId" name="loginId" placeholder="ID">
+  <input type="password" id="loginPw" name="loginPw" placeholder="Password">
+<li><button class="loginBtn">로그인</button></li>
+</form>
+{% endif %}
+        <li>
+          <a
+            href="https://nomadcoders.co/"
+            alt="Nomad"
+            title="Nomad"
+            target="_blank"
+          >
+            <img
+              class="headerLogo"
+              src="https://user-images.githubusercontent.com/80146176/152681088-ee4a282d-591c-4587-bfcf-5cc435d602df.png"
+            />
+          </a>
+        </li>
         <li>
           <a
             href="https://www.apple.com/kr/?afid=p238%7CsO8L3jewZ-dc_mtid_18707vxu38484_pcrid_570597729764_pgrid_16348496961_&cid=aos-kr-kwgo-Brand--slid---product--"
@@ -419,16 +481,32 @@
     <div class="searchContainer">
       <div class="searchBarWrapper">
         <form class="searchBar" action="/search" method="get">
-          <button>
-            <i class="fas fa-search"></i>
-          </button>
-          <input type="search" placeholder="Job search in the creative world" />
+          <div class="searchInput">
+            <button>
+              <i class="fas fa-search"></i>
+            </button>
+            <input
+              class="searchWordBar"
+              type="text"
+              placeholder="Job search in the creative world"
+              name="word"
+            />
+          </div>
+          <div class="searchCheckContainer">
+                       <label>
+              <input name="site" type="checkbox" onclick="doOpenCheck(this);" value="all" checked />
+              All
+            </label>
+            <label>
+              <input name="site" type="checkbox" onclick="doOpenCheck(this);" value="indeed" />
+              Indeed
+            </label>
+            <label>
+              <input name="site" type="checkbox" onclick="doOpenCheck(this);" value="so" />
+              SO
+            </label>
+          </div>
         </form>
-        <div class="whatSite">
-          <span>All</span>
-          <span>원티드</span>
-          <span>SO</span>
-        </div>
       </div>
       <div class="searchOption">
         <div class="optionBox">
@@ -446,17 +524,21 @@
           <span>연봉</span>
           <i class="fas fa-chevron-down"></i>
         </div>
+        <span class="count11"></span>
       </div>
     </div>
     <section>
       {% for job in jobs %}
       <div class="content">
-        <a href="{{job.link}}" title="{{job.companyName}}" target="_blank">
-          <img src="{{job.img}}" />
+        <a href="{{job.link}}" title="{{job.companyName}}" style="background-color: rgb({{job.r}}, {{job.g}}, {{job.b}})" target="_blank">
+          <img class="contentImg" src="{{job.img}}" />
         </a>
         <span class="companyText">{{job.title}}</span>
         <div class="textWrapper">
           <div class="textBox">
+            <div class="imgBox">
+              <img src="{{job.companyImg}}" alt="{{job.companyName}}" />
+            </div>
             <span class="textTitle">{{job.companyName}}</span>
             <span class="textLocation">{{job.location}}</span>
           </div>
@@ -475,4 +557,33 @@
       {% endfor %}
     </section>
   </body>
+  <script>
+    function doOpenCheck(chk){
+    var obj = document.getElementsByName("site");
+    for(var i=0; i<obj.length; i++){
+        if(obj[i] != chk){
+            obj[i].checked = false;
+        }
+    }
+}
+    let count = 0;
+    const spanCount = document.querySelector(".count11");
+    const fomr = document.querySelector(".searchBar");
+    const onClick = () => {
+      setInterval(() => {
+        if(count>98){
+          count = count + 0.001
+        }
+        else{
+        count = count + 1;
+
+        }
+        spanCount.innerText = `로딩중 : ${count.toFixed(3)}%`;
+      }, 100);
+    };
+    fomr.addEventListener("submit", onClick);
+    function onlyAlphabet(ele) {
+	  ele.value = ele.value.replace(/[^\\!-z]/gi,"");
+  }
+  </script>
 </html>

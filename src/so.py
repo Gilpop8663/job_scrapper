@@ -19,12 +19,15 @@ def extract_job(html):
     company=company.get_text(strip=True)
     location=location.get_text(strip=True)
     job_id=html["data-jobid"]
+    r = random.randrange(1,255)
+    g = random.randrange(1,255)
+    b = random.randrange(1,255)
     img_src=html.find("div",{"class":"mr12"}).find("img")
     if img_src ==None:
         img_src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Icon_None.svg/100px-Icon_None.svg.png"
     else:
         img_src=html.find("div",{"class":"mr12"}).find("img")["src"]
-    return {"site":"so","title":title,"companyName":company,"location":location,"link":f"https://stackoverflow.com/jobs/{job_id}","img":img_src,"like":random.randrange(1,10000),"view":random.randrange(1,10000)}
+    return {"site":"so","title":title,"companyName":company,"location":location,"link":f"https://stackoverflow.com/jobs/{job_id}","img":"https://user-images.githubusercontent.com/80146176/152671175-ebb42cf1-2394-4905-840c-6e6d6e74b0db.png","like":random.randrange(1,10000),"view":random.randrange(1,10000),"companyImg":img_src,"r":r,"g":g,"b":b}
 
 def extract_jobs(last_page,URL):
     jobs=[]
