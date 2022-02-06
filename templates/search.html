@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find A Job</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/
+                           v2.0 | 20110126
+                           License: none (public domain)
+                        */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      body {
+        background-image: url("https://user-images.githubusercontent.com/80146176/152661692-6a6355da-e09c-4526-ba01-a9ffcfd9563f.png");
+        background-position: center;
+        background-size: cover;
+      }
+      header {
+        display: flex;
+        padding: 55px 40px;
+        justify-content: space-between;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      }
+      header span {
+        font-size: 32px;
+      }
+      ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+      .loginBtn {
+        padding: 10px 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+      }
+      .loginColorBtn {
+        padding: 10px 20px;
+        background-color: #7377fd;
+        color: white;
+        border-radius: 30px;
+      }
+      .headerLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        width: 25px;
+        padding: 7.5px;
+        height: 25px;
+      }
+
+      .headerFaceLogo {
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        width: 40px;
+        background-color: #3c589e;
+        height: 40px;
+      }
+      .searchContainer {
+        padding: 45px 45px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      }
+      .searchBar button {
+        background: inherit;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        overflow: visible;
+        cursor: pointer;
+      }
+      .searchBarWrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        font-size: 22px;
+        padding: 20px 40px;
+        border-radius: 50px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        background-color: #cccccc;
+        margin-bottom: 30px;
+      }
+      .searchBar {
+        display: flex;
+        border-right: 2px solid rgba(0, 0, 0, 0.2);
+      }
+      .fa-search {
+        font-size: 30px;
+      }
+      .searchBar input {
+        width: 100%;
+        margin-left: 40px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        background-color: inherit;
+        font-size: 30px;
+        border: none;
+      }
+      .searchBar input::placeholder {
+        color: #222;
+        opacity: 1;
+        font-size: 30px;
+      }
+      .searchBar input:focus {
+        border: none;
+        background-color: inherit;
+        font-size: 30px;
+      }
+      input:placeholder-shown {
+        outline: none;
+        font-size: 30px;
+        background-color: inherit;
+        border: none;
+      }
+      input:focus::-webkit-input-placeholder {
+        outline: none;
+        font-size: 30px;
+        color: transparent;
+        border: none;
+      }
+      input:focus::-moz-placeholder {
+        outline: none;
+        color: transparent;
+        border: none;
+      }
+      input:focus:-ms-input-placeholder {
+        outline: none;
+        color: transparent;
+        border: none;
+      }
+      input:focus::-ms-input-placeholder {
+        color: transparent;
+        border: none;
+      }
+      .searchBar input:-ms-input-placeholder {
+        color: #222;
+        opacity: 1;
+      }
+      .whatSite {
+        display: flex;
+        align-items: center;
+        padding: 0px 40px;
+        justify-content: space-between;
+      }
+      .searchOption {
+        display: flex;
+      }
+      .optionBox {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 22px;
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+      }
+      .optionColorCircle {
+        background-image: linear-gradient(45deg, #f3b6fd, #9a8aff);
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .fa-chevron-down {
+        margin-left: 10px;
+      }
+      .fa-tools {
+        margin-right: 15px;
+      }
+      section {
+        padding: 45px;
+        display: grid;
+        gap: 25px;
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
+      .content a {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+      .content img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+      }
+      .textWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      .textBox {
+        display: flex;
+        flex-direction: column;
+      }
+      .textBox span {
+        margin-bottom: 10px;
+      }
+      .userResponse {
+        display: flex;
+        justify-content: flex-start;
+      }
+      .userLike {
+        margin-right: 15px;
+      }
+      .userResponse i {
+        font-size: 22px;
+      }
+      .userResponse span {
+        font-size: 14px;
+      }
+      .textTitle {
+        font-size: 22px;
+      }
+      .textLocation {
+        font-size: 12px;
+      }
+      .companyText {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span>FIND A JAB</span>
+      <ul>
+        <li><div class="loginBtn">LOGIN</div></li>
+        <li><div class="loginColorBtn">LOGIN</div></li>
+        <li>
+          <a
+            href="https://www.apple.com/kr/?afid=p238%7CsO8L3jewZ-dc_mtid_18707vxu38484_pcrid_570597729764_pgrid_16348496961_&cid=aos-kr-kwgo-Brand--slid---product--"
+            alt="Apple"
+            title="Apple"
+            target="_blank"
+          >
+            <img
+              class="headerLogo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/195px-Apple_logo_black.svg.png"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://ko-kr.facebook.com/"
+            alt="FaceBook"
+            title="FaceBook"
+            target="_blank"
+          >
+            <img
+              class="headerFaceLogo"
+              src="https://04.cadwork.com/wp-content/uploads/logo-facebook-280x280.png"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.co.kr/"
+            alt="Google"
+            title="Google"
+            target="_blank"
+          >
+            <img
+              class="headerLogo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"
+            />
+          </a>
+        </li>
+      </ul>
+    </header>
+    <div class="searchContainer">
+      <div class="searchBarWrapper">
+        <form class="searchBar" action="/search" method="get">
+          <button>
+            <i class="fas fa-search"></i>
+          </button>
+          <input type="search" placeholder="Job search in the creative world" />
+        </form>
+        <div class="whatSite">
+          <span>All</span>
+          <span>원티드</span>
+          <span>SO</span>
+        </div>
+      </div>
+      <div class="searchOption">
+        <div class="optionBox">
+          <i class="fas fa-tools"></i>
+          <span>가장 인기있는 도구</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="optionBox">
+          <div class="optionColorCircle"></div>
+          <span>지역 별</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="optionBox">
+          <div class="optionColorCircle"></div>
+          <span>연봉</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+    <section>
+      {% for job in jobs %}
+      <div class="content">
+        <a href="{{job.link}}" title="{{job.companyName}}" target="_blank">
+          <img src="{{job.img}}" />
+        </a>
+        <span class="companyText">{{job.title}}</span>
+        <div class="textWrapper">
+          <div class="textBox">
+            <span class="textTitle">{{job.companyName}}</span>
+            <span class="textLocation">{{job.location}}</span>
+          </div>
+          <div class="userResponse">
+            <div class="userLike">
+              <i class="far fa-thumbs-up"></i>
+              <span>{{job.like}}</span>
+            </div>
+            <div class="userView">
+              <i class="far fa-eye"></i>
+              <span>{{job.view}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </body>
+</html>
